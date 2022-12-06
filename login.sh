@@ -2,11 +2,10 @@
 
 function start_weechat()
 {
-  if [ -f \"/home/weechat/.weechat/irc.conf\" ] ; then
+  if [ -f "/home/weechat/.weechat/irc.conf" ] ; then
     weechat
   else
-    local config=$(cat config.txt | tr \"\\n\" \"\;\")
-    weechat -r "${config}"
+    weechat -r "/proxy add tor socks5 127.0.0.1 9050"
   fi
 }
 
