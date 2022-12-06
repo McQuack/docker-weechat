@@ -1,12 +1,10 @@
 FROM debian
 
-MAINTAINER kerwindena
-
 ## Install all the Packages
 
 RUN apt-get update && apt-get install -y \
     --no-install-recommends \
-    ssh \
+    openssh-server \
     weechat \
     weechat-plugins \
     weechat-scripts \
@@ -39,7 +37,6 @@ RUN useradd --create-home tor
 
 # Add files not to be changed by the end user
 ADD login.sh /home/weechat/
-ADD config.txt /home/weechat/
 
 # Add startup script
 ADD startup.sh /usr/sbin/
